@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "animals")
-public class Animal
+public class Animal extends Auditable
 {
     //Fields
     @Id
@@ -13,6 +13,9 @@ public class Animal
 
     @Column(nullable = false)
     private String animaltype;
+
+    //Zooanimal represents a many to many relationship between zoos and animals.
+    //A zoo may have many animal types and an animal type may be at many zoos.
 
     //Constructors
     public Animal()

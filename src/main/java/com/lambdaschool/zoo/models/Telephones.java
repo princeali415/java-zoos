@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "telephones")
-public class Telephones
+public class Telephones extends Auditable
 {
     //Fields
     @Id
@@ -19,7 +19,8 @@ public class Telephones
 
     //foreign key to the Zoo table indicating the zoo who holds this telephone number
     //There is a one to many relationship between zoos and telephones.
-    //One zoo can have multiple phone numbers but each phone number can only belong to one zoo.
+    //           Many to one relationship between telephone and zoos***
+    //One zoo can have multiple phone numbers but each phone number(telephones) can only belong to one zoo.
     @ManyToOne
     @JoinColumn(name = "zooid", nullable = false)
     @JsonIgnoreProperties(value = "telephones")
