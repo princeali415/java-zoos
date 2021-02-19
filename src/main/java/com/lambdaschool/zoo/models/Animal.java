@@ -1,6 +1,10 @@
 package com.lambdaschool.zoo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "animals")
@@ -16,6 +20,10 @@ public class Animal extends Auditable
 
     //Zooanimal represents a many to many relationship between zoos and animals.
     //A zoo may have many animal types and an animal type may be at many zoos.
+    @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties(value = "animal", allowSetters = true)
+    private Set<ZooAnimal> zoo = new HashSet<>();
+
 
     //Constructors
     public Animal()

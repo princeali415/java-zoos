@@ -20,7 +20,7 @@ public class ZooAnimal extends Auditable implements Serializable
     @Id
     @ManyToOne
     @JoinColumn(name = "animalid")
-    @JsonIgnoreProperties(value = "zoos", allowSetters = true)
+    @JsonIgnoreProperties(value = "zoo", allowSetters = true)
     private Animal animal;
 
     private String incomingzoo;
@@ -31,8 +31,13 @@ public class ZooAnimal extends Auditable implements Serializable
         //Required by JPA
     }
 
-    public ZooAnimal(String incomingzoo)
+    public ZooAnimal(
+        Zoo zoo,
+        Animal animal,
+        String incomingzoo)
     {
+        this.zoo = zoo;
+        this.animal = animal;
         this.incomingzoo = incomingzoo;
     }
 

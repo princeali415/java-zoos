@@ -34,10 +34,12 @@ public class Telephones extends Auditable
 
     public Telephones(
         String phonetype,
-        String phonenumber)
+        String phonenumber,
+        Zoo zoo)
     {
         this.phonetype = phonetype;
         this.phonenumber = phonenumber;
+        this.zoo = zoo;
     }
 
     //Getter and Setters
